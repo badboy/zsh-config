@@ -1,0 +1,8 @@
+#compdef ncftp ftp
+compdef _ncftp ncftp ftp
+
+_ncftp() {
+    shift words
+    _values "ncftp bookmark" \
+      $(egrep -o "^(\w+)," /home/badboy/.ncftp/bookmarks | sed 's/,//g')
+}

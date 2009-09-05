@@ -1,0 +1,9 @@
+#compdef sake
+compdef _sake sake
+
+COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+_sake() {
+    shift words
+    _values "sake action" \
+      $(ruby $COMP_ZSH_DIR/sake_completion $words | sed 's/:/\\:/g')
+}

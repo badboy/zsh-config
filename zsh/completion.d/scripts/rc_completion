@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# to install, add the following line to your .bash_profile or .bashrc
+# complete -C path/to/rc_completion -o default rc
+# add this function, too:
+#
+# rc() {
+#   sudo /etc/rc.d/$1 $2
+# }
+
+# Rc completion will return matching rc.d/* scripts given typed text. This way
+# you can auto-complete scripts and tasks as you are typing them by hitting [tab] or [tab][tab]
+class RcCompletion
+  def initialize(command)
+    @command = command
+  end
+  
+  def matches
+    if typed.scan(/ /).size > 0
+      script, task = typed.split(/ /)
+      matching_tasks(script, task)
+    else
+      m = matching_scripts
+      if m.size == 1
+        matching_tasks(m.first, '')
+      else
+        m
+      end
+    end
+  end
+  
+  private
+  
+  def typed
+    @command
+  end
+  
+  def matching_scripts
+    all_scripts.select do |script|
+      script[0, typed.length] == typed
+    end
+  end
+
+  def matching_tasks(script, text)
+    text ||= ''
+    all_tasks(script).select do |task|
+      task[0, text.length] == text
+    end
+  end
+
+  def all_tasks(script)
+    `/etc/rc.d/#{script} 2>/dev/null`.scan(/\{.+\}/).map{|e|e.gsub(/[{}]/, '').split('|')}.flatten
+  end
+  
+  def all_scripts
+    Dir["/etc/rc.d/*"].map { |e| File.basename e }
+  end
+  
+end
+
+puts RcCompletion.new(ARGV.join).matches
+exit 0

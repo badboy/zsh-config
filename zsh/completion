@@ -1,0 +1,8 @@
+#autoload -U compinit
+#compinit
+for file in /home/badboy/code/zsh-config/zsh/completion.d/_*
+do
+    source $file
+done
+ 
+# vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

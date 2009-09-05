@@ -1,0 +1,17 @@
+MY_ZSH_DIR="/home/badboy/code/zsh-config/zsh"
+
+#fpath=($MY_ZSH_DIR/functions $fpath)
+ 
+#autoload -U $MY_ZSH_DIR/functions/*(:t)
+for file in /home/badboy/code/zsh-config/zsh/functions.d/*
+do
+    source $file
+done
+
+. $MY_ZSH_DIR/aliases
+. $MY_ZSH_DIR/completion
+. $MY_ZSH_DIR/keybindings
+. $MY_ZSH_DIR/prompt
+#. $MY_ZSH_DIR/completion
+
+# vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+
+# auto completion for "cheat"
+# http://cheat.errtheblog.com/
+class CheatCompletion
+  CACHE_FILE_NAME = '/home/badboy/.cheat_tasks~'
+  
+  def initialize(command)
+    @command = command
+  end
+  
+  def matches
+    matching_tasks
+  end
+  
+  private
+  
+  def matching_tasks
+    all_tasks.select do |task|
+      task[0, @command.length] == @command
+    end
+  end
+  
+  def all_tasks
+    cache_current? ? tasks_from_cache : generate_tasks
+  end
+  
+  def cache_current?
+    File.exist?(cache_file)
+  end
+  
+  def cache_file
+    CACHE_FILE_NAME
+  end
+  
+  def tasks_from_cache
+    IO.read(cache_file).split
+  end
+  
+  def generate_tasks
+    tasks = `cheat sheets`.split("\n").collect {|line| line.strip}
+    File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
+    tasks
+  end
+end
+
+puts CheatCompletion.new(ARGV.join).matches
+exit 0

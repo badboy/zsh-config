@@ -1,0 +1,29 @@
+SSH_ENV="$HOME/.ssh/environment"
+
+ssha_stop () {
+    pkill ssh-agent
+    rm "${SSH_ENV}"
+}
+
+ssha () {
+	if pregp ssh-agent &>/dev/null; then
+		echo "ssh-agent running"
+		exit
+	else
+		/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+		. "${SSH_ENV}" > /dev/null
+		/usr/bin/ssh-add	
+	fi
+}	
+
+if [ -f "${SSH_ENV}" ]; then
+	. "${SSH_ENV}" >/dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep -q ssh-agent$ || {
+        # no restart, just delete the environment file
+        ssha_stop 
+        export SSH_AUTH_SOCK=
+        export SSH_AGENT_PID=
+	}
+fi
+
+# vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
