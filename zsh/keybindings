@@ -1,2 +1,2 @@
-bindkey '[1;5D' backward-word
-bindkey '[1;5C' forward-word
+bindkey '[1;5D' backward-word # ctrl+left
+bindkey '[1;5C' forward-word  # ctrl+right
