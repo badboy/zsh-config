@@ -330,12 +330,7 @@ done
 # }}}
 
 # {{{ set some variables
-if check_com -c vim ; then
-#v#
-    export EDITOR=${EDITOR:-vim}
-else
-    export EDITOR=${EDITOR:-vi}
-fi
+export EDITOR=vim
 
 #v#
 export PAGER=${PAGER:-less}
@@ -1779,9 +1774,9 @@ setopt transient_rprompt
         fi
     fi
     # just use DONTSETRPROMPT=1 to be able to overwrite RPROMPT
-    if [[ $DONTSETRPROMPT -eq 0 ]] ; then
-        RPROMPT="%(?..:() "
-    fi
+    #if [[ $DONTSETRPROMPT -eq 0 ]] ; then
+    #    RPROMPT="%(?..:() "
+    #fi
     # adjust title of xterm
     # see http://www.faqs.org/docs/Linux-mini/Xterm-Title.html
     [[ ${NOTITLE} -gt 0 ]] && return 0
@@ -2425,48 +2420,24 @@ export COLORTERM="yes"
 # set default browser
 if [[ -z "$BROWSER" ]] ; then
     if [[ -n "$DISPLAY" ]] ; then
-        #v# If X11 is running
-        check_com -c firefox && export BROWSER=firefox
+        export BROWSER=firefox
     else
-        #v# If no X11 is running
-        check_com -c w3m && export BROWSER=w3m
+        export BROWSER=w3m
     fi
 fi
 
 #m# v QTDIR \kbd{/usr/share/qt[34]}\quad [for non-root only]
-[[ -d /usr/share/qt3 ]] && export QTDIR=/usr/share/qt3
 [[ -d /usr/share/qt4 ]] && export QTDIR=/usr/share/qt4
 
-# support running 'jikes *.java && jamvm HelloWorld' OOTB:
-#v# [for non-root only]
-[[ -f /usr/share/classpath/glibj.zip ]] && export JIKESPATH=/usr/share/classpath/glibj.zip
 # }}}
 
 # aliases {{{
-
-# Xterm resizing-fu.
-# Based on http://svn.kitenet.net/trunk/home-full/.zshrc?rev=11710&view=log (by Joey Hess)
-alias hide='echo -en "\033]50;nil2\007"'
-alias tiny='echo -en "\033]50;-misc-fixed-medium-r-normal-*-*-80-*-*-c-*-iso8859-15\007"'
-alias small='echo -en "\033]50;6x10\007"'
-alias medium='echo -en "\033]50;-misc-fixed-medium-r-normal--13-120-75-75-c-80-iso8859-15\007"'
-alias default='echo -e "\033]50;-misc-fixed-medium-r-normal-*-*-140-*-*-c-*-iso8859-15\007"'
-alias large='echo -en "\033]50;-misc-fixed-medium-r-normal-*-*-150-*-*-c-*-iso8859-15\007"'
-alias huge='echo -en "\033]50;-misc-fixed-medium-r-normal-*-*-210-*-*-c-*-iso8859-15\007"'
-alias smartfont='echo -en "\033]50;-artwiz-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*\007"'
-alias semifont='echo -en "\033]50;-misc-fixed-medium-r-semicondensed-*-*-120-*-*-*-*-iso8859-15\007"'
 
 # general
 #a2# Execute \kbd{du -sch}
 alias da='du -sch'
 #a2# Execute \kbd{jobs -l}
 alias j='jobs -l'
-
-# compile stuff
-#a2# Execute \kbd{./configure}
-alias CO="./configure"
-#a2# Execute \kbd{./configure --help}
-alias CH="./configure --help"
 
 # listing stuff
 #a2# Execute \kbd{ls -lSrah}
@@ -2496,31 +2467,9 @@ alias lsold="ls -rtlh *(D.om[1,10])"   # display the oldest files
 #a2# Display the ten smallest files
 alias lssmall="ls -Srl *(.oL[1,10])"   # display the smallest files
 
-# chmod
-#a2# Execute \kbd{chmod 600}
-alias rw-='chmod 600'
-#a2# Execute \kbd{chmod 700}
-alias rwx='chmod 700'
-#m# a2 r-{}- Execute \kbd{chmod 644}
-alias r--='chmod 644'
-#a2# Execute \kbd{chmod 755}
-alias r-x='chmod 755'
-
 # some useful aliases
 #a2# Execute \kbd{mkdir -o}
 alias md='mkdir -p'
-
-# console stuff
-#a2# Execute \kbd{mplayer -vo fbdev}
-alias cmplayer='mplayer -vo fbdev'
-#a2# Execute \kbd{mplayer -vo fbdev -fs -zoom}
-alias fbmplayer='mplayer -vo fbdev -fs -zoom'
-#a2# Execute \kbd{links2 -driver fb}
-alias fblinks='links2 -driver fb'
-
-#a2# ssh with StrictHostKeyChecking=no \\&\quad and UserKnownHostsFile unset
-alias insecssh='ssh -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null"'
-alias insecscp='scp -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null"'
 
 # simple webserver
 check_com -c python && alias http="python -m SimpleHTTPServer"
@@ -2528,23 +2477,6 @@ check_com -c python && alias http="python -m SimpleHTTPServer"
 # Use 'g' instead of 'git':
 check_com g || alias g='git'
 
-# work around non utf8 capable software in utf environment via $LANG and luit
-if check_com isutfenv && check_com luit ; then
-    if check_com -c mrxvt ; then
-        isutfenv && [[ -n "$LANG" ]] && \
-            alias mrxvt="LANG=${LANG/(#b)(*)[.@]*/$match[1].iso885915} luit mrxvt"
-    fi
-
-    if check_com -c aterm ; then
-        isutfenv && [[ -n "$LANG" ]] && \
-            alias aterm="LANG=${LANG/(#b)(*)[.@]*/$match[1].iso885915} luit aterm"
-    fi
-
-    if check_com -c centericq ; then
-        isutfenv && [[ -n "$LANG" ]] && \
-            alias centericq="LANG=${LANG/(#b)(*)[.@]*/$match[1].iso885915} luit centericq"
-    fi
-fi
 # }}}
 
 # useful functions {{{
@@ -3634,6 +3566,7 @@ weather() {
 # }}}
 
 zrclocal
+source /home/badboy/code/zsh-config/zsh/config  
 
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
