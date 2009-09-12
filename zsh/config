@@ -1,16 +1,59 @@
-MY_ZSH_DIR="/home/badboy/code/zsh-config/zsh"
+MY_ZDOTDIR="/home/badboy/code/zsh-config"
+export MY_ZDOTDIR
 
-#fpath=($MY_ZSH_DIR/functions $fpath)
- 
-#autoload -U $MY_ZSH_DIR/functions/*(:t)
-for file in /home/badboy/code/zsh-config/zsh/functions.d/*
+autoload colors
+colors
+setopt correct_all
+
+# push cds to directory stack
+setopt auto_pushd
+
+# don't push something twice
+setopt pushd_ignore_dups
+
+# don't kill jobs when exiting shell 
+setopt no_hup
+# and don't warn
+setopt no_check_jobs
+
+# show us when some command didn't exit with 0
+#setopt print_exit_value
+
+export OOO_FORCE_DESKTOP=gnome
+
+if [[ -n "$DISPLAY" ]] ; then
+    export BROWSER=firefox
+else
+    export BROWSER=w3m
+fi
+
+export PATH=${HOME}/bin:${PATH}
+export EDITOR=vim
+export VISUAL=$EDITOR
+export LESSCHARSET="UTF-8"
+#export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
+#export LESS='-F -i -n -w -g -M -R -P%t?f%f \
+#:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+
+rationalise-dot() {
+	if [[ $LBUFFER = *.. ]]; then
+		LBUFFER+=/..
+	else
+		LBUFFER+=.
+	fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+
+# load my defined functions
+for file in $MY_ZDOTDIR/zsh/functions.d/*
 do
     source $file
 done
 
-. $MY_ZSH_DIR/aliases
-. $MY_ZSH_DIR/completion
-. $MY_ZSH_DIR/keybindings
-. $MY_ZSH_DIR/prompt
+. $MY_ZDOTDIR/zsh/aliases
+. $MY_ZDOTDIR/zsh/completion
+. $MY_ZDOTDIR/zsh/keybindings
+. $MY_ZDOTDIR/zsh/prompt
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

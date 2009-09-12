@@ -13,17 +13,17 @@ function up {
 rc() {
         sudo /etc/rc.d/$*
 }
-_rc() {
-  if (( CURRENT > 2 )); then
-    (( CURRENT-- ))
-    shift words
-    _call_function 1 _gem_${words[1]}
-  else
-    _values "rc daemon" \
-      $(find /etc/rc.d -type f  | sed 's#.\+/##')
-  fi
-}
-compdef _rc rc
+#_rc() {
+#  if (( CURRENT > 2 )); then
+#    (( CURRENT-- ))
+#    shift words
+#    _call_function 1 _gem_${words[1]}
+#  else
+#    _values "rc daemon" \
+#      $(find /etc/rc.d -type f  | sed 's#.\+/##')
+#  fi
+#}
+#compdef _rc rc
 
 # Creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
@@ -33,20 +33,6 @@ mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
 function mounted {
   echo -en "\e[1;7m" && echo "$(echo -e "DEVICE VERZEICHNIS DATEISYSTEM [BEZEICHNUNG]\e[0m"; mount -l | cut -d" " -f1,3,5,7 | sort)"|column -t
-}
-
-any() {
-    if [[ -z "$1" ]] ; then
-        echo "any - grep for process(es) by keyword" >&2
-        echo "Usage: any <keyword>" >&2 ; return 1
-    else
-        local STRING=$1
-        local LENGTH=$(expr length $STRING)
-        local FIRSCHAR=$(echo $(expr substr $STRING 1 1))
-        local REST=$(echo $(expr substr $STRING 2 $LENGTH))
-        #ps xauwww| grep "[$FIRSCHAR]$REST"
-        ps ax| grep "[$FIRSCHAR]$REST"
-    fi
 }
 
 mcd() {

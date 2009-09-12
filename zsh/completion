@@ -1,8 +1,11 @@
-#autoload -U compinit
-#compinit
-for file in /home/badboy/code/zsh-config/zsh/completion.d/_*
+# load my completions
+#fpath=($MY_ZDOTDIR/zsh/completion.d $fpath)
+#autoload -U $MY_ZDOTDIR/functions/*(:t)
+for file in $MY_ZDOTDIR/zsh/completion.d/_*;
 do
     source $file
 done
+
+zstyle ':completion:*' menu yes select
  
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

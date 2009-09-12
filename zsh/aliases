@@ -6,14 +6,13 @@ alias -s com=$BROWSER
 alias -s net=$BROWSER
 alias -s png=mirage
 alias -s jpg=mirage
-alias -s gif=feg
+alias -s gif=mirage
 alias -s sxw=soffice
 alias -s doc=soffice
 alias -s gz=tar -xzvf
 alias -s bz2=tar -xjvf
 alias -s txt=$EDITOR
-alias -s PKGBUILD=$EDITOR
-alias -s rb=$EDITOR
+#alias -s rb=$EDITOR
 alias -s c=$EDITOR
 
 
@@ -40,14 +39,6 @@ alias -- -install="sudo pacman -S"
 alias pacup='sudo pacman -Syu'
 alias y="yaourt"
 alias yup="yaourt -Syu --aur"
-
-# some more ls aliases
-alias ll='ls -l --time-style="+%F, %H:%M " --group-directories-first'
-alias la='ls -A'
-alias l='ls -CF'
-alias rm='rm -I'
-#alias ..='cd ..'
-#alias ...='cd ../..'
 
 alias o='xdg-open'
 alias pdf2='evince'

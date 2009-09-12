@@ -1,30 +1,30 @@
-BLUE=$'%{\e[1;34m%}'
-RED=$'%{\e[0;31m%}'
-GREEN=$'%{\e[1;32m%}'
-CYAN=$'%{\e[1;36m%}'
-WHITE=$'%{\e[1;37m%}'
-MAGENTA=$'%{\e[1;35m%}'
-YELLOW=$'%{\e[1;33m%}'
-NO_COLOUR=$'%{\e[0m%}'
+P_BLUE=$'%{\e[1;34m%}'
+P_RED=$'%{\e[0;31m%}'
+P_GREEN=$'%{\e[1;32m%}'
+P_CYAN=$'%{\e[1;36m%}'
+P_WHITE=$'%{\e[1;37m%}'
+P_MAGENTA=$'%{\e[1;35m%}'
+P_YELLOW=$'%{\e[1;33m%}'
+P_NO_COLOUR=$'%{\e[0m%}'
 
 function __ps1_git_state {
   if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit (working directory clean)" ]];
   then
-    echo "${RED}$(__git_ps1 " (%s)")${NO_COLOUR}"
+    echo "${P_RED}$(__git_ps1 " (%s)")${P_NO_COLOUR}"
   else
-    echo "${RED}$(__git_ps1 " (%s*)")${NO_COLOUR}"
+    echo "${P_RED}$(__git_ps1 " (%s*)")${P_NO_COLOUR}"
   fi
 }
 
 function my_prompt {
   if [ -n "$SSH_CONNECTION" ]; then
-      PS1="[%m] [%~\$(__ps1_git_state)]%# "
+      PROMPT="[%m] [%~\$(__ps1_git_state)]%# "
   else
-      PS1="[%~\$(__ps1_git_state)]%# "
+      PROMPT="[%~\$(__ps1_git_state)]%# "
   fi
 }
 function sprompt {
-  PS1="%# "
+  PROMPT="%# "
 }
 
 my_prompt
