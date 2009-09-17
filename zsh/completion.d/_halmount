@@ -1,0 +1,15 @@
+#compdef halmount
+compdef _halmount halmount
+compdef _halumount halumount
+
+_halmount () {
+    if [ $CURRENT -eq 2 ]; then
+        compadd $(find /dev -maxdepth 1 -type b -name "sd*")
+    fi
+}
+
+_halumount () {
+    if [ $CURRENT -eq 2 ]; then
+        compadd $(mount | grep /media/ | sed 's#.\+\(/media/.\+\) type.*#\1#')
+    fi
+}
