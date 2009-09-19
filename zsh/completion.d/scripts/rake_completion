@@ -57,7 +57,7 @@ class RakeCompletion
   end
   
   def generate_tasks
-    tasks = `rake --silent --tasks`.split("\n")[1..-1].collect {|line| line.split[1]}
+    tasks = `rake --silent --tasks`.split("\n").collect {|line| line.split[1]}
     begin
       File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
     rescue Errno::EACCES => boom
