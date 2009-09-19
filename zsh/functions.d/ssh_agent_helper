@@ -6,9 +6,9 @@ ssha_stop () {
 }
 
 ssha () {
-	if pregp ssh-agent &>/dev/null; then
+	if pgrep ssh-agent &>/dev/null; then
 		echo "ssh-agent running"
-		exit
+        return
 	else
 		/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
 		. "${SSH_ENV}" > /dev/null
