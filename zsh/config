@@ -28,11 +28,8 @@ else
     export BROWSER=w3m
 fi
 
-export PATH=${HOME}/bin:${PATH}
-# needed for ruby 1.8 gems, now that ruby 1.9 is in extra
-ruby_path() {
-    export PATH=/home/badboy/.gem/ruby/1.8/bin:${PATH}
-}
+# extended to use ruby 1.8 gems with "18" suffix
+export PATH=${HOME}/bin:${PATH}:${HOME}/.gem/ruby/1.8/bin
 export EDITOR=vim
 export VISUAL=$EDITOR
 export LESSCHARSET="UTF-8"
@@ -65,4 +62,7 @@ hash -d filme=/home/badboy/media/filme/
 hash -d techno=/home/badboy/Music/Techno
 hash -d zsh=/home/badboy/code/zsh-config
 hash -d aur=/home/badboy/code/aur
+hash -d serien=/home/badboy/media/serien/
+hash -d psych=/home/badboy/media/serien/Psych/S04/
+hash -d tbbt=/home/badboy/media/serien/TBBT/S03/
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

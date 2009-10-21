@@ -815,17 +815,18 @@ hash -d log=/var/log
 hash -d www=/home/www
 # }}}
 
-# {{{ some aliases
+# {{{ some aliases'
 
 # ls always colored
-alias ls='ls --color=auto'
-alias ll='ls -l --time-style="+%F, %H:%M " --group-directories-first --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+LS_OPTIONS='--color=auto --group-directories-first'
+alias ls="ls ${LS_OPTIONS}"
+alias ll='ls -l --time-style="+%F, %H:%M" '${LS_OPTIONS}
+alias la="ls -A ${LS_OPTIONS}"
+alias l="ls -CF ${LS_OPTIONS}"
 # long colored list, human readable sizes 
-alias lh='ls -hAl --color=auto'
+alias lh="ls -hAl ${LS_OPTIONS}"
 
-alias ...='cd ../../'
+#alias ...='cd ../../'
 
 alias cp='nocorrect cp'         # no spelling correction on cp
 alias mkdir='nocorrect mkdir'   # no spelling correction on mkdir
@@ -835,7 +836,8 @@ alias rm='nocorrect rm -I'         # no spelling correction on rm
 #a1# Execute \kbd{rmdir}
 alias rd='rmdir'
 #a1# Execute \kbd{rmdir}
-alias md='mkdir'
+#alias md='mkdir'
+md() { mkdir -p "$1" && cd "$1" }
 
 # I like clean prompt, so provide simple way to get that
 alias 0='return 0'
@@ -1174,10 +1176,6 @@ alias lsnew="ls -rl *(D.om[1,10])"     # display the newest files
 alias lsold="ls -rtlh *(D.om[1,10])"   # display the oldest files
 #a2# Display the ten smallest files
 alias lssmall="ls -Srl *(.oL[1,10])"   # display the smallest files
-
-# some useful aliases
-#a2# Execute \kbd{mkdir -o}
-alias md='mkdir -p'
 
 # simple webserver
 alias http="python -m SimpleHTTPServer"

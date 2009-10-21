@@ -1,5 +1,5 @@
-#compdef gem gem19
-compdef _gem gem gem19
+#compdef gem gem1
+compdef _gem gem gem18
 
 gem_general_flags=("(-h --help)"{-h,--help}"[Get help on this command]"
   "(-V --verbose)"{-V,--verbose}"[Set the verbose level of output]"

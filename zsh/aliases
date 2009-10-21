@@ -30,7 +30,7 @@ alias reload='exec zsh'
 
 alias gemi='sudo gem install'
 
-alias ri='qri'
+#alias ri='qri'
 
 alias pgrep='pgrep -l'
 
@@ -69,7 +69,8 @@ alias gajim-toggle='gajim-remote toggle_roster_appearance'
 alias nuzbl='noout uzbl'
 alias diff='colordiff'
 
-alias scrn='screen -c ~/.screenrc_i3'
+alias scrn='screen -S i3 -c ~/.screenrc_i3 -dR'
+alias mutts='screen -S mutt -c ~/.screenrc_mutt -dR'
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
 alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "extern: ";getip -q)'
