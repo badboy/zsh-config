@@ -74,5 +74,6 @@ alias mutts='screen -S mutt -c ~/.screenrc_mutt -dR'
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
 alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "extern: ";getip -q)'
+alias rails='rails18'
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
