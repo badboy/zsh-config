@@ -65,4 +65,9 @@ hash -d aur=/home/badboy/code/aur
 hash -d serien=/home/badboy/media/serien/
 hash -d psych=/home/badboy/media/serien/Psych/S04/
 hash -d tbbt=/home/badboy/media/serien/TBBT/S03/
+hash -d ex=/home/badboy/ruby/rails/expertura
+
+# execute after each cd
+chpwd() { ls }
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
