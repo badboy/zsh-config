@@ -459,7 +459,7 @@ abk=(
     '....' '../../..'
     'BG'   '& exit'
     'C'    '| wc -l'
-    'G'    '|& grep --color=auto '
+    'G'    '|& grep '
     'H'    '| head'
     'Hl'   ' --help |& less -r'    #d (Display help in pager)
     'L'    '| less'
@@ -1150,33 +1150,6 @@ export COLORTERM="yes"
 alias da='du -sch'
 alias j='jobs -l'
 
-# listing stuff
-alias dir="ls -lSrah"
-#a2# Only show dot-directories
-alias lad='ls -d .*(/)'                # only show dot-directories
-#a2# Only show dot-files
-alias lsa='ls -a .*(.)'                # only show dot-files
-#a2# Only files with setgid/setuid/sticky flag
-alias lss='ls -l *(s,S,t)'             # only files with setgid/setuid/sticky flag
-#a2# Only show 1st ten symlinks
-alias lsl='ls -l *(@)'                 # only symlinks
-#a2# Display only executables
-alias lsx='ls -l *(*)'                 # only executables
-#a2# Display world-{readable,writable,executable} files
-alias lsw='ls -ld *(R,W,X.^ND/)'       # world-{readable,writable,executable} files
-#a2# Display the ten biggest files
-alias lsbig="ls -flh *(.OL[1,10])"     # display the biggest files
-#a2# Only show directories
-alias lsd='ls -d *(/)'                 # only show directories
-#a2# Only show empty directories
-alias lse='ls -d *(/^F)'               # only show empty directories
-#a2# Display the ten newest files
-alias lsnew="ls -rl *(D.om[1,10])"     # display the newest files
-#a2# Display the ten oldest files
-alias lsold="ls -rtlh *(D.om[1,10])"   # display the oldest files
-#a2# Display the ten smallest files
-alias lssmall="ls -Srl *(.oL[1,10])"   # display the smallest files
-
 # simple webserver
 alias http="python -m SimpleHTTPServer"
 
@@ -1187,12 +1160,6 @@ alias g='git'
 
 # useful functions {{{
 #'
-#f5# cd to directoy and list files
-cl() {
-    emulate -L zsh
-    cd $1 && ls -a
-}
-
 # use colors when GNU grep with color-support
 alias grep='grep --color=auto'
 alias GREP='grep -i --color=auto'
@@ -1218,24 +1185,6 @@ d() {
         return 1
     fi
     cd ~$dir
-}
-
-vman() {
-    emulate -L zsh
-    man $* | col -b | view -c 'set ft=man nomod nolist' -
-}
-
-# function readme() { $PAGER -- (#ia3)readme* }
-#f5# View all README-like files in current directory in pager
-readme() {
-    emulate -L zsh
-    local files
-    files=(./(#i)*(read*me|lue*m(in|)ut)*(ND))
-    if (($#files)) ; then
-        $PAGER $files
-    else
-        print 'No README files.'
-    fi
 }
 
 # function ansi-colors()
