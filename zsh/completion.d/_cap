@@ -1,0 +1,10 @@
+#compdef cap
+compdef _cap cap
+
+COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+_cap() {
+    #shift words
+    #echo $words[1] >> /home/badboy/test.log
+    _values "cap action" \
+    $(ruby $COMP_ZSH_DIR/cap_completion | sed 's/:/\\:/g')
+}

@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+# to install, add the following line to your .bash_profile or .bashrc
+# complete -C path/to/rake_completion -o default cap
+
+class CapCompletion
+  CACHE_FILE_NAME = '.cap_tasks~'
+  
+  def initialize(command)
+    @command = command
+  end
+  
+  def matches
+    all_tasks #matching_tasks
+  end
+  
+  private
+  
+  def all_tasks
+    #cache_current? ? tasks_from_cache : generate_tasks
+    generate_tasks
+  end
+  
+  def cache_current?
+    File.exist?(cache_file) && File.mtime(cache_file) >= File.mtime(capfile)
+  end
+  
+  def cache_file
+    File.join(Dir.pwd, CACHE_FILE_NAME)
+  end
+  
+  def tasks_from_cache
+    IO.read(cache_file).split
+  end
+  
+  def generate_tasks
+    tasks = `cap --tasks | grep "^cap"`.split("\n").collect {|line| line.split[1]}
+    if $?.success?
+      begin
+        File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
+      rescue Errno::EACCES => boom
+        # puts boom
+      end
+    end
+    tasks || []
+  end
+end
+
+puts CapCompletion.new(ARGV).matches
+exit 0

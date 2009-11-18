@@ -9,43 +9,27 @@
 class RakeCompletion
   CACHE_FILE_NAME = '.rake_tasks~'
   
-  def initialize(command)
+  def initialize(rake_com, command)
+    @rake_com = rake_com
+    if @rake_com.empty?
+      @rake_com = "rake18"
+    end
     @command = command
   end
   
   def matches
-    exit 0 if rakefile.nil?
-    matching_tasks
+    all_tasks #matching_tasks
   end
   
   private
   
-  def typed
-    @command || ''
-  end
-  
-  def typed_before_colon
-    typed[/.+\:/] || ''
-  end
-  
-  def matching_tasks
-    all_tasks.select do |task|
-      task[0, typed.length] == typed
-    end
-  end
-  
   def all_tasks
-    cache_current? ? tasks_from_cache : generate_tasks
+    #cache_current? ? tasks_from_cache : generate_tasks
+    generate_tasks
   end
   
   def cache_current?
     File.exist?(cache_file) && File.mtime(cache_file) >= File.mtime(rakefile)
-  end
-  
-  def rakefile
-    ['rakefile', 'Rakefile', 'rakefile.rb', 'Rakefile.rb'].detect do |file|
-      File.file? File.join(Dir.pwd, file)
-    end
   end
   
   def cache_file
@@ -57,15 +41,17 @@ class RakeCompletion
   end
   
   def generate_tasks
-    tasks = `rake --silent --tasks`.split("\n").collect {|line| line.split[1]}
-    begin
-      File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
-    rescue Errno::EACCES => boom
-      # puts boom
+    tasks = `#{@rake_com} --silent --tasks`.split("\n").collect {|line| line.split[1]}
+    if $?.success?
+      begin
+        File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
+      rescue Errno::EACCES => boom
+        # puts boom
+      end
     end
-    tasks
+    tasks || []
   end
 end
 
-puts RakeCompletion.new(ARGV.join).matches
+puts RakeCompletion.new(ARGV.first, (ARGV[1..-1]||[]).join).matches
 exit 0

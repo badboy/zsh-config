@@ -1,4 +1,4 @@
-#compdef gem gem1
+#compdef gem gem18
 compdef _gem gem gem18
 
 gem_general_flags=("(-h --help)"{-h,--help}"[Get help on this command]"

@@ -1,12 +1,14 @@
 #compdef rake
-compdef _rake rake
+compdef _rake rake rake18
 
 COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
 _rake() {
-    shift words
+    #shift words
+    #echo $words[1] >> /home/badboy/test.log
     if rake -T |& grep -iq "no rakefile found" 
     then
-        echo -e "\nno rakefile found"
+        #echo -e "\nno rakefile found"
+        _values "no rakefile found" ""
     else
         _values "rake action" \
             $(ruby $COMP_ZSH_DIR/rake_completion $words | sed 's/:/\\:/g')
