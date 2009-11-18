@@ -69,11 +69,18 @@ alias gajim-toggle='gajim-remote toggle_roster_appearance'
 alias nuzbl='noout uzbl'
 alias diff='colordiff'
 
+alias sshfs='nocorrect sshfs'
 alias scrn='screen -S i3 -c ~/.screenrc_i3 -dR'
 alias mutts='screen -S mutt -c ~/.screenrc_mutt -dR'
+alias performance='su -c "cpufreq-set -g performance; cpufreq-set -c 1 -g performance"'
+alias ondemand='su -c "cpufreq-set -g ondemand; cpufreq-set -c 1 -g ondemand"'
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
-alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "extern: ";getip -q)'
-alias rails='rails18'
+alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip -q)'
+
+alias rake='rake18'
+alias sv='script/server'
+alias sg='script/generate'
+alias sc='script/console'
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
