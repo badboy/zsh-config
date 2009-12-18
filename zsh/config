@@ -57,15 +57,8 @@ done
 . $MY_ZDOTDIR/zsh/completion
 . $MY_ZDOTDIR/zsh/keybindings
 . $MY_ZDOTDIR/zsh/prompt
+. $MY_ZDOTDIR/zsh/diraliases
 
-hash -d filme=/home/badboy/media/filme/
-hash -d techno=/home/badboy/Music/Techno
-hash -d zsh=/home/badboy/code/zsh-config
-hash -d aur=/home/badboy/code/aur
-hash -d serien=/home/badboy/media/serien/
-hash -d psych=/home/badboy/media/serien/Psych/S04/
-hash -d tbbt=/home/badboy/media/serien/TBBT/S03/
-hash -d ex=/home/badboy/ruby/rails/expertura
 
 # execute after each cd
 chpwd() { ls }
