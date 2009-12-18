@@ -12,6 +12,7 @@ alias -s doc=soffice
 alias -s gz=tar -xzvf
 alias -s bz2=tar -xjvf
 alias -s txt=$EDITOR
+alias -s pdf=xpdf
 #alias -s rb=$EDITOR
 alias -s c=$EDITOR
 
@@ -47,6 +48,7 @@ alias fz='filezilla'
 alias ftp='ncftp'
 
 alias pcmanfm-here='pcmanfm --no-desktop "$(pwd)"'
+alias pc.='pcmanfm --no-desktop .'
 
 alias cups='sudo /etc/rc.d/cups start'
 alias cupss='sudo /etc/rc.d/cups stop'
@@ -82,5 +84,7 @@ alias rake='rake18'
 alias sv='script/server'
 alias sg='script/generate'
 alias sc='script/console'
+
+alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull && [ \$(vercmp \$(i3 -v | awk '{print \$3}') \$(git describe --tags --always)) -eq 0 ] && echo 'version up to date' || echo 'version differs')"
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
