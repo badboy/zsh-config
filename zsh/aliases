@@ -17,21 +17,13 @@ alias -s pdf=xpdf
 alias -s c=$EDITOR
 
 
-alias xampp='sudo /opt/lampp/lampp'
-
-alias openoffice='soffice'
 alias e='leafpad'
 alias v='vim -p'
 alias svim='sudo vim'
 alias vp='vim -p *'
-alias ghex='ghex2'
 
 #alias reload='source ~/.zshrc'
 alias reload='exec zsh'
-
-alias gemi='sudo gem install'
-
-#alias ri='qri'
 
 alias pgrep='pgrep -l'
 
@@ -41,7 +33,6 @@ alias pacup='sudo pacman -Syu'
 alias y="yaourt"
 alias yup="yaourt -Syu --aur"
 
-alias o='xdg-open'
 alias pdf2='evince'
 alias pdf='apvlv'
 alias fz='filezilla'
@@ -56,19 +47,15 @@ alias cupss='sudo /etc/rc.d/cups stop'
 alias ncmpc='ncmpcpp'
 alias inkscap='LC_ALL=C inkscape'
 alias clip='xclip -selection clipboard'
-alias vid='export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so'
-alias newcheat='rm /home/badboy/.cheat_tasks~'
-alias newsake='rm /home/badboy/.sake_tasks~'
-alias motd='cat ~/other/motd'
+#alias vid='export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so'
+#alias newsake='rm /home/badboy/.sake_tasks~'
 
-alias quickcam='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot'
-
-alias avidemux='avidemux2_qt4'
+#alias quickcam='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot'
+#alias avidemux='avidemux2_qt4'
 
 alias startxi3='startx /usr/bin/i3 -- :1 vt8 -nolisten tcp'
 
 alias gajim-toggle='gajim-remote toggle_roster_appearance'
-alias nuzbl='noout uzbl'
 alias diff='colordiff'
 
 alias sshfs='nocorrect sshfs'
@@ -86,5 +73,6 @@ alias sg='script/generate'
 alias sc='script/console'
 
 alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull && [ \$(vercmp \$(i3 -v | awk '{print \$3}') \$(git describe --tags --always)) -eq 0 ] && echo 'version up to date' || echo 'version differs')"
+alias rename='/usr/bin/perlbin/vendor/rename'
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
