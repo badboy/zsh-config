@@ -1,12 +1,8 @@
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 
-hash -d filme=/home/badboy/media/filme/
-hash -d techno=/home/badboy/Music/Techno
 hash -d zsh=/home/badboy/code/zsh-config
 hash -d aur=/home/badboy/code/aur
-hash -d serien=/home/badboy/media/serien/
-hash -d psych=/home/badboy/media/serien/Psych/S04/
-hash -d tbbt=/home/badboy/media/serien/TBBT/S03/
 hash -d ex=/home/badboy/ruby/rails/expertura
 hash -d mpl=/home/badboy/.cache/gnome-mplayer/plugin
 hash -d ernie=/home/badboy/code/github/mojombo/ernie
+hash -d blog=/home/badboy/ruby/rails/blog
