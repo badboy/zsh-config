@@ -75,4 +75,6 @@ alias sc='script/console'
 alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull && [ \$(vercmp \$(i3 -v | awk '{print \$3}') \$(git describe --tags --always)) -eq 0 ] && echo 'version up to date' || echo 'version differs')"
 alias rename='/usr/bin/perlbin/vendor/rename'
 
+alias d='cd'
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

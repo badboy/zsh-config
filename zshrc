@@ -1167,25 +1167,25 @@ alias GREP='grep -i --color=auto'
 # d():Copyright 2005 Nikolai Weibull <nikolai@bitwi.se>
 # note: option AUTO_PUSHD has to be set
 #f5# Jump between directories
-d() {
-    emulate -L zsh
-    autoload -U colors
-    local color=$fg_bold[blue]
-    integer i=0
-    dirs -p | while read dir; do
-        local num="${$(printf "%-4d " $i)/ /.}"
-        printf " %s  $color%s$reset_color\n" $num $dir
-        (( i++ ))
-    done
-    integer dir=-1
-    read -r 'dir?Jump to directory: ' || return
-    (( dir == -1 )) && return
-    if (( dir < 0 || dir >= i )); then
-        echo d: no such directory stack entry: $dir
-        return 1
-    fi
-    cd ~$dir
-}
+#d() {
+#    emulate -L zsh
+#    autoload -U colors
+#    local color=$fg_bold[blue]
+#    integer i=0
+#    dirs -p | while read dir; do
+#        local num="${$(printf "%-4d " $i)/ /.}"
+#        printf " %s  $color%s$reset_color\n" $num $dir
+#        (( i++ ))
+#    done
+#    integer dir=-1
+#    read -r 'dir?Jump to directory: ' || return
+#    (( dir == -1 )) && return
+#    if (( dir < 0 || dir >= i )); then
+#        echo d: no such directory stack entry: $dir
+#        return 1
+#    fi
+#    cd ~$dir
+#}
 
 # function ansi-colors()
 #f5# Display ANSI colors
