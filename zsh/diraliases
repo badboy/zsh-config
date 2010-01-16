@@ -6,3 +6,4 @@ hash -d ex=/home/badboy/ruby/rails/expertura
 hash -d mpl=/home/badboy/.cache/gnome-mplayer/plugin
 hash -d ernie=/home/badboy/code/github/mojombo/ernie
 hash -d blog=/home/badboy/ruby/rails/blog
+hash -d 26c3=/home/badboy/media/misc/26c3
