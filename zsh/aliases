@@ -55,7 +55,6 @@ alias clip='xclip -selection clipboard'
 
 alias startxi3='startx /usr/bin/i3 -- :1 vt8 -nolisten tcp'
 
-alias gajim-toggle='gajim-remote toggle_roster_appearance'
 alias diff='colordiff'
 
 alias sshfs='nocorrect sshfs'
@@ -65,7 +64,7 @@ alias performance='su -c "cpufreq-set -g performance; cpufreq-set -c 1 -g perfor
 alias ondemand='su -c "cpufreq-set -g ondemand; cpufreq-set -c 1 -g ondemand"'
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
-alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip -q)'
+alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
 
 alias rake='rake18'
 alias sv='script/server'
@@ -76,5 +75,8 @@ alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull 
 alias rename='/usr/bin/perlbin/vendor/rename'
 
 alias d='cd'
+
+# readline support in erl shell
+alias rerl='rlwrap -a erl'
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
