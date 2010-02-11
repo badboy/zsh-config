@@ -1,4 +1,4 @@
-SSH_ENV="$HOME/.ssh/environment"
+#SSH_ENV="$HOME/.ssh/environment"
 
 #ssha_stop () {
 #    pkill ssh-agent
@@ -25,8 +25,8 @@ SSH_ENV="$HOME/.ssh/environment"
 #        export SSH_AGENT_PID=
 #	}
 #fi
-ssha() {
-    /usr/bin/ssh-add
-}
+#ssha() {
+#    /usr/bin/ssh-add
+#}
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
