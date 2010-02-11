@@ -4,12 +4,14 @@ compdef _halumount halumount
 
 _halmount () {
     if [ $CURRENT -eq 2 ]; then
-        compadd $(find /dev -maxdepth 1 -type b -name "sd*")
+        #compadd $(find /dev -maxdepth 1 -type b -name "sd*")
+        compadd $(halmount -l)
     fi
 }
 
 _halumount () {
     if [ $CURRENT -eq 2 ]; then
-        compadd $(mount | grep /media/ | sed 's#.\+\(/media/.\+\) type.*#\1#')
+        #compadd $(mount | grep /media/ | sed 's#.\+\(/media/.\+\) type.*#\1#')
+        compadd $(halumount -l | grep media | awk '{print $2}')
     fi
 }
