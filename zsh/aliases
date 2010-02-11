@@ -21,17 +21,16 @@ alias e='leafpad'
 alias v='vim -p'
 alias svim='sudo vim'
 alias vp='vim -p *'
+alias ssha='/usr/bin/ssh-add'
 
 #alias reload='source ~/.zshrc'
 alias reload='exec zsh'
 
 alias pgrep='pgrep -l'
 
-alias -- -search="yaourt -Ss"
+alias -- -search="bauerbill -Ss --aur"
 alias -- -install="sudo pacman -S"
 alias pacup='sudo pacman -Syu'
-alias y="yaourt"
-alias yup="yaourt -Syu --aur"
 
 alias pdf2='evince'
 alias pdf='apvlv'
@@ -66,7 +65,8 @@ alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm 
 alias abs='sudo abs'
 alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
 
-alias rake='rake18'
+# not needed for now, using rvm instead.
+#alias rake='rake18'
 alias sv='script/server'
 alias sg='script/generate'
 alias sc='script/console'
