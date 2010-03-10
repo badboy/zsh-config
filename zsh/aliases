@@ -45,7 +45,6 @@ alias cupss='sudo /etc/rc.d/cups stop'
 
 alias ncmpc='ncmpcpp'
 alias inkscap='LC_ALL=C inkscape'
-alias clip='xclip -selection clipboard'
 #alias vid='export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so'
 #alias newsake='rm /home/badboy/.sake_tasks~'
 
