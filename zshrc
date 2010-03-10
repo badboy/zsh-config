@@ -462,7 +462,7 @@ abk=(
     'G'    '|& grep '
     'H'    '| head'
     'Hl'   ' --help |& less -r'    #d (Display help in pager)
-    'L'    '| less'
+    'L'    '|& less'
     'LL'   '|& less -r'
     'M'    '| most'
     'N'    '&>/dev/null'           #d (No Output)
