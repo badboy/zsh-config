@@ -79,4 +79,8 @@ alias d='cd'
 # readline support in erl shell
 alias rerl='rlwrap -a erl'
 
+# seems like gem 1.3.6 ignores dir in home
+# -> own config file for 1.8-version
+alias gem18='/usr/bin/gem18 --config-file ~/.gemrc18'
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
