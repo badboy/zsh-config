@@ -1,0 +1,6 @@
+#compdef cg
+compdef _cg cg
+
+_cg() {
+    _values $(cg.rb --completion)
+}

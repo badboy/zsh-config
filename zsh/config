@@ -63,4 +63,30 @@ done
 # execute after each cd
 chpwd() { ls }
 
+# try to execute the right thing for unknown input
+# for example it clones git urls
+function command_not_found_handler() {
+  ~/bin/shell_method_missing $*
+}
+
+#if [[ -z "$DISPLAY" && -z "$SSH_TTY" && $(tty) = /dev/tty1 ]]; then
+#    SERVER_ARGS=":0 -nolisten tcp vt7"
+#
+#    # Drop root to console
+#    if [[ $EUID -eq 0 ]]; then
+#        exec ${SHELL}
+#    fi
+#    startx -- $SERVER_ARGS &
+#    logout
+#fi
+
+# using rvm
+if [[ -s /home/badboy/.rvm/scripts/rvm ]] ; then source /home/badboy/.rvm/scripts/rvm ; fi
+
+# to access github's code directly
+function cg() {
+    local dir=$(cg.rb $*)
+    cd $dir
+}
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
