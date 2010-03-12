@@ -41,7 +41,7 @@ class RakeCompletion
   end
   
   def generate_tasks
-    tasks = `#{@rake_com} --silent --tasks`.split("\n").collect {|line| line.split[1]}
+    tasks = `#{@rake_com} --silent --tasks 2>/dev/null`.split("\n").collect {|line| line.split[1]}
     if $?.success?
       begin
         File.open(cache_file, 'w') { |f| f.write tasks.join("\n") }
