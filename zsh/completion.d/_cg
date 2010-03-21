@@ -2,5 +2,5 @@
 compdef _cg cg
 
 _cg() {
-    _values $(cg.rb --completion)
+    _values "change to github project" $(cg.rb --completion)
 }
