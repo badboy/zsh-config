@@ -1206,7 +1206,7 @@ ansi-colors() {
 # }}}
 
 zrclocal
-source /home/badboy/code/zsh-config/zsh/config  
+source /home/badboy/projects/zsh-config/zsh/config
 
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

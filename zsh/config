@@ -1,5 +1,5 @@
 ZDOTDIR="/home/badboy/.zsh"
-MY_ZDOTDIR="/home/badboy/code/zsh-config"
+MY_ZDOTDIR="/home/badboy/projects/zsh-config"
 export MY_ZDOTDIR
 
 autoload colors
