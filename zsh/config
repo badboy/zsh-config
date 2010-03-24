@@ -38,11 +38,11 @@ export LESSCHARSET="UTF-8"
 #:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
 rationalise-dot() {
-	if [[ $LBUFFER = *.. ]]; then
-		LBUFFER+=/..
-	else
-		LBUFFER+=.
-	fi
+    if [[ $LBUFFER = *.. ]]; then
+        LBUFFER+=/..
+    else
+        LBUFFER+=.
+    fi
 }
 zle -N rationalise-dot
 bindkey . rationalise-dot
