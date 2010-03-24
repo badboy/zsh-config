@@ -17,6 +17,9 @@ setopt no_hup
 # and don't warn
 setopt no_check_jobs
 
+# ctrl-W kills up to last slash (/)
+bindkey '^W' slash-backward-kill-word
+
 # show us when some command didn't exit with 0
 #setopt print_exit_value
 
