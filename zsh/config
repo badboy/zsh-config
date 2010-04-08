@@ -36,6 +36,7 @@ export PATH=${HOME}/bin:${PATH}:${HOME}/.gem/ruby/1.8/bin
 export EDITOR=vim
 export VISUAL=$EDITOR
 export LESSCHARSET="UTF-8"
+export PAGER=less
 #export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 #export LESS='-F -i -n -w -g -M -R -P%t?f%f \
 #:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
