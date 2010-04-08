@@ -58,8 +58,11 @@ alias diff='colordiff'
 alias sshfs='nocorrect sshfs'
 alias scrn='screen -S i3 -c ~/.screenrc_i3 -dR'
 alias mutts='screen -S mutt -c ~/.screenrc_mutt -dR'
+
 alias performance='su -c "cpufreq-set -g performance; cpufreq-set -c 1 -g performance"'
 alias ondemand='su -c "cpufreq-set -g ondemand; cpufreq-set -c 1 -g ondemand"'
+alias curcpu='LC_ALL=C cpufreq-info | grep -o "governor \".\+\"" | sed "s/.\+\"\([^\"]\+\)\"/\1/" | uniq'
+
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
 alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
