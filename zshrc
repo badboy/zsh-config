@@ -1086,7 +1086,7 @@ H-Glob() {
   print **/*(g:users:)  # Recursively match all files that are owned by group 'users'
   echo /proc/*/cwd(:h:t:s/self//) # Analogous to >ps ax | awk '{print $1}'<"
 }
-alias help-zshglob=H-Glob
+alias zshglob=H-Glob
 
 check_com -c qma && alias ?='qma zshall'
 
