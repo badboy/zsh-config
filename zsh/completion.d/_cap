@@ -1,7 +1,7 @@
 #compdef cap
 compdef _cap cap
 
-COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+COMP_ZSH_DIR="/home/badboy/projects/zsh-config/zsh/completion.d/scripts"
 _cap() {
     #shift words
     #echo $words[1] >> /home/badboy/test.log

@@ -1,7 +1,7 @@
 #compdef cheat
 compdef _cheat cheat
 
-COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+COMP_ZSH_DIR="/home/badboy/projects/zsh-config/zsh/completion.d/scripts"
 _cheat() {
     shift words
     _values "cheat sheet" \

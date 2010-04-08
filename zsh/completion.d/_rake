@@ -1,7 +1,7 @@
 #compdef rake
 compdef _rake rake rake18
 
-COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+COMP_ZSH_DIR="/home/badboy/projects/zsh-config/zsh/completion.d/scripts"
 _rake() {
     #shift words
     #echo $words[1] >> /home/badboy/test.log

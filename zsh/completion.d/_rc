@@ -1,7 +1,7 @@
 #compdef rc
 compdef _rc rc
 
-COMP_ZSH_DIR="/home/badboy/code/zsh-config/zsh/completion.d/scripts"
+COMP_ZSH_DIR="/home/badboy/projects/zsh-config/zsh/completion.d/scripts"
 #_rc() {
 #  if (( CURRENT == 3 )); then
 #    (( CURRENT-- ))
