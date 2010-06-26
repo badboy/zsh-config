@@ -1,6 +1,7 @@
 ZDOTDIR="/home/badboy/.zsh"
 MY_ZDOTDIR="/home/badboy/projects/zsh-config"
 export MY_ZDOTDIR
+export REPORTTIME=10
 
 autoload colors
 colors
@@ -92,5 +93,9 @@ function cg() {
     local dir=$(cg.rb $*)
     cd $dir
 }
+
+#export RUBYLIB="$RUBYLIB:$HOME/code/github/defunkt/rip/lib"
+#export PATH="$PATH:$HOME/code/github/defunkt/rip/bin"
+#eval `rip-config`
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
