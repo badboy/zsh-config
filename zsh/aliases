@@ -32,8 +32,8 @@ alias -- -search="bauerbill -Ss --aur"
 alias -- -install="sudo pacman -S"
 alias pacup='sudo pacman -Syu'
 
+alias pdf='xpdf'
 alias pdf2='evince'
-alias pdf='apvlv'
 alias fz='filezilla'
 alias ftp='ncftp'
 
