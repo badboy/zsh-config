@@ -1,7 +1,3 @@
-# {{{ setup
-# load .zshrc.pre to give the user the chance to overwrite the defaults
-[[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
-
 # check for user, if not running as root set $SUDO to sudo
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
