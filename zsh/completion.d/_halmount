@@ -1,6 +1,9 @@
 #compdef halmount
 compdef _halmount halmount
 compdef _halumount halumount
+compdef _halmount pmount
+compdef _halmount pmount-hal
+compdef _halumount pumount
 
 _halmount () {
     if [ $CURRENT -eq 2 ]; then
