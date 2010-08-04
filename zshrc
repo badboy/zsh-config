@@ -1083,6 +1083,7 @@ H-Glob() {
   echo /proc/*/cwd(:h:t:s/self//) # Analogous to >ps ax | awk '{print $1}'<"
 }
 alias zshglob=H-Glob
+alias helpglob=H-Glob
 
 check_com -c qma && alias ?='qma zshall'
 
