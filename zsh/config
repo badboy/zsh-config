@@ -70,7 +70,7 @@ chpwd() { ls }
 
 # try to execute the right thing for unknown input
 # for example it clones git urls
-function command_not_found_handler() {
+command_not_found_handler() {
   ~/bin/shell_method_missing $*
 }
 
@@ -89,7 +89,7 @@ function command_not_found_handler() {
 if [[ -s /home/badboy/.rvm/scripts/rvm ]] ; then source /home/badboy/.rvm/scripts/rvm ; fi
 
 # to access github's code directly
-function cg() {
+cg() {
     local dir=$(cg.rb $*)
     cd $dir
 }

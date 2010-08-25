@@ -7,7 +7,7 @@ P_MAGENTA=$'%{\e[1;35m%}'
 P_YELLOW=$'%{\e[1;33m%}'
 P_NO_COLOUR=$'%{\e[0m%}'
 
-function __ps1_git_state {
+__ps1_git_state() {
   if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit (working directory clean)" ]];
   then
     echo "${P_RED}$(__git_ps1 " (%s)")${P_NO_COLOUR}"
@@ -16,17 +16,16 @@ function __ps1_git_state {
   fi
 }
 
-function my_prompt {
+fancy_prompt() {
   if [ -n "$SSH_CONNECTION" ]; then
       PROMPT="[%m] [%~\$(__ps1_git_state)]%# "
   else
       PROMPT="[%~\$(__ps1_git_state)]%# "
   fi
 }
-function sprompt {
-  PROMPT="%# "
-}
 
-my_prompt
+sprompt() { PROMPT="%# " }
+
+fancy_prompt
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4

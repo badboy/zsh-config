@@ -832,8 +832,6 @@ alias rm='nocorrect rm -I'         # no spelling correction on rm
 #a1# Execute \kbd{rmdir}
 alias rd='rmdir'
 #a1# Execute \kbd{rmdir}
-#alias md='mkdir'
-md() { mkdir -p "$1" && cd "$1" }
 
 # I like clean prompt, so provide simple way to get that
 alias 0='return 0'

@@ -1,5 +1,5 @@
-## up N		>>> go up N directories
-function up {
+## up N     >>> go up N directories
+up() {
 [ "${1/[^0-9]/}" == "$1" ] && {
         local ups=""
         for i in $(seq 1 $1)
@@ -10,41 +10,28 @@ function up {
         } || echo "usage: up INTEGER"
 }
 
-rc() {
-        sudo /etc/rc.d/$*
-}
-#_rc() {
-#  if (( CURRENT > 2 )); then
-#    (( CURRENT-- ))
-#    shift words
-#    _call_function 1 _gem_${words[1]}
-#  else
-#    _values "rc daemon" \
-#      $(find /etc/rc.d -type f  | sed 's#.\+/##')
-#  fi
-#}
-#compdef _rc rc
+rc() { sudo /etc/rc.d/$* }
 
 # Creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
-
-function mounted {
+mounted() {
   echo -en "\e[1;7m" && echo "$(echo -e "DEVICE VERZEICHNIS DATEISYSTEM [BEZEICHNUNG]\e[0m"; mount -l | cut -d" " -f1,3,5,7 | sort)"|column -t
 }
 
-mcd() {
-    mkdir -p "$@" && cd "$@"
-}
+md() { mkdir -p "$@" && cd "$@" }
 
-# It's shameless stolen from <http://www.vim.org/tips/tip.php?tip_id=167>
-#f5# Use \kbd{vim} as your manpage reader
+# It's shameless stolen from <http://vim.wikia.com/wiki/VimTip167>
+# Use vim as your manpage reader
 vman() {
-    man $* | col -b | view -c 'set ft=man nomod nolist' -
+    #man $* | col -b | view -c 'set ft=man nomod nolist' -
+    PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+        vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+        -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+        -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\"" man $* 2>/dev/null
 }
-
 
 biggestProgs()
 {
@@ -53,7 +40,5 @@ biggestProgs()
     echo "-----+---------+---------------------------"
     pacman -Qs|awk '/local/{print substr($3,2)" "substr($1,7)}'|sort -rn|head -$1|awk '{printf "%4d | %7s | %s\n",NR,$1,$2}'
 }
-
-
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
