@@ -85,4 +85,6 @@ alias rerl='rlwrap -a erl'
 # -> own config file for 1.8-version
 alias gem18='/usr/bin/gem18 --config-file ~/.gemrc18'
 
+alias bvbradio="mplayer 'mms://62.27.26.5/bvb\$home32k'"
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
