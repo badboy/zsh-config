@@ -1146,7 +1146,7 @@ alias da='du -sch'
 alias j='jobs -l'
 
 # simple webserver
-alias http="python -m SimpleHTTPServer"
+alias http="python2 -m SimpleHTTPServer"
 
 # Use 'g' instead of 'git':
 alias g='git'
