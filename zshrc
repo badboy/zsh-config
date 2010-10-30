@@ -1157,6 +1157,7 @@ alias g='git'
 #'
 # use colors when GNU grep with color-support
 alias grep='grep --color=auto'
+alias cgrep='grep --color=always'
 alias GREP='grep -i --color=auto'
 
 # d():Copyright 2005 Nikolai Weibull <nikolai@bitwi.se>
