@@ -1096,7 +1096,7 @@ any() {
         local LENGTH=$(expr length $STRING)
         local FIRSCHAR=$(echo $(expr substr $STRING 1 1))
         local REST=$(echo $(expr substr $STRING 2 $LENGTH))
-        ps ax| grep "[$FIRSCHAR]$REST"
+        ps ax| grep -i "[$FIRSCHAR]$REST"
         #ps xauwww| grep "[$FIRSCHAR]$REST"
     fi
 }
