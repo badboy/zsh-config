@@ -1156,8 +1156,8 @@ alias g='git'
 # useful functions {{{
 #'
 # use colors when GNU grep with color-support
-alias grep='grep --color=always'
-alias GREP='grep -i --color=always'
+alias grep='grep --color=auto'
+alias GREP='grep -i --color=auto'
 
 # d():Copyright 2005 Nikolai Weibull <nikolai@bitwi.se>
 # note: option AUTO_PUSHD has to be set
