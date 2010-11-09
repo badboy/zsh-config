@@ -16,7 +16,7 @@ alias -s pdf=xpdf
 #alias -s rb=$EDITOR
 alias -s c=$EDITOR
 
-
+alias rename='perl-rename'
 alias e='leafpad'
 alias v='vim -p'
 alias svim='sudo vim'
@@ -74,7 +74,6 @@ alias sg='script/generate'
 alias sc='script/console'
 
 alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull && [ \$(vercmp \$(i3 -v | awk '{print \$3}') \$(git describe --tags --always)) -eq 0 ] && echo 'version up to date' || echo 'version differs')"
-alias rename='/usr/bin/perlbin/vendor/rename'
 
 alias d='cd'
 
