@@ -27,7 +27,7 @@ bindkey '^W' slash-backward-kill-word
 export OOO_FORCE_DESKTOP=gnome
 
 if [[ -n "$DISPLAY" ]] ; then
-    export BROWSER=firefox
+    export BROWSER=chromium
 else
     export BROWSER=w3m
 fi
