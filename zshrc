@@ -802,7 +802,7 @@ PS2='\`%_> '      # secondary prompt, printed when the shell needs more informat
 PS3='?# '         # selection prompt used within a select loop.
 PS4='+%N:%i:%_> ' # the execution trace prompt (setopt xtrace). default: '+%N:%i>'
 
-PROMPT="[%m] [%~\$]%# "
+#PROMPT="[%m] [%~\$]%# "
 # }}}
 
 # {{{ 'hash' some often used directories
