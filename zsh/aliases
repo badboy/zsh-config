@@ -88,4 +88,6 @@ alias gem18='/usr/bin/gem18 --config-file ~/.gemrc18'
 # to windows (using smb) and from windows (using ftp)
 alias gatling='sudo /home/badboy/code/gatling/gatling -p 81 -u 1000 -w harmless'
 
+alias raumstatus='curl http://ctdo.de/raumstatus.cgi'
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
