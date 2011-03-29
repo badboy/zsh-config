@@ -28,7 +28,7 @@ alias reload='exec zsh'
 
 alias pgrep='pgrep -l'
 
-alias -- -search="bauerbill -Ss --aur"
+alias -- -search="packer -Ss"
 alias -- -install="sudo pacman -S"
 alias pacup='sudo pacman -Syu'
 
