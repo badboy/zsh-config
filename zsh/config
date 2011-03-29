@@ -33,8 +33,15 @@ else
     export BROWSER=w3m
 fi
 
+if echo $PATH | grep -vq '/'${HOME}'/bin[^:]*';
+then
+    export PATH=${HOME}/bin:${PATH}
+fi
 # extended to use ruby 1.8 gems with "18" suffix
-export PATH=${HOME}/bin:${PATH}:${HOME}/.gem/ruby/1.8/bin
+export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
+# include npm binaries
+export PATH=${PATH}:${HOME}/bin/npm_bin
+
 export EDITOR=vim
 export VISUAL=$EDITOR
 export LESSCHARSET="UTF-8"
