@@ -15,6 +15,9 @@ _halmount () {
 _halumount () {
     if [ $CURRENT -eq 2 ]; then
         #compadd $(mount | grep /media/ | sed 's#.\+\(/media/.\+\) type.*#\1#')
-        compadd $(halumount -l | grep media | cut -d' ' -f'2-' | sed 's/ /\\ /')
+        halumount -l | grep media | cut -d' ' -f'2-' | while read LINE
+        do
+            compadd "$LINE"
+        done
     fi
 }
