@@ -65,7 +65,7 @@ alias curcpu='LC_ALL=C cpufreq-info | grep -o "governor \".\+\"" | sed "s/.\+\"\
 
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
-alias ip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
+alias xip='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
 
 # not needed for now, using rvm instead.
 #alias rake='rake18'
