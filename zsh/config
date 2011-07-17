@@ -108,6 +108,12 @@ cg() {
     cd $dir
 }
 
+mkpasswd() {
+    local L=12
+    [ $# -ne 0 ] && L=$1
+    echo `cat /dev/urandom | tr -cd [:alnum:] | head -c $L`;
+}
+
 #export RUBYLIB="$RUBYLIB:$HOME/code/github/defunkt/rip/lib"
 #export PATH="$PATH:$HOME/code/github/defunkt/rip/bin"
 #eval `rip-config`
