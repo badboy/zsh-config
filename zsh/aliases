@@ -40,8 +40,8 @@ alias ftp='ncftp'
 alias pcmanfm-here='pcmanfm --no-desktop "$(pwd)"'
 alias pc.='pcmanfm --no-desktop .'
 
-alias cups='sudo /etc/rc.d/cups start'
-alias cupss='sudo /etc/rc.d/cups stop'
+alias cups='sudo /etc/rc.d/cupsd start'
+alias cupss='sudo /etc/rc.d/cupsd stop'
 
 alias ncmpc='ncmpcpp'
 alias inkscap='LC_ALL=C inkscape'
