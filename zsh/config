@@ -38,8 +38,7 @@ then
     export PATH=${HOME}/bin:${PATH}
 fi
 
-# extended to use ruby 1.8 gems with "18" suffix
-export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
+export PATH=${PATH}:${HOME}/.gem/ruby/1.9/bin
 # include npm binaries
 export PATH=${PATH}:${HOME}/.node_libraries/bin/
 # add android-sdk tools
@@ -100,7 +99,7 @@ command_not_found_handler() {
 #fi
 
 # using rvm
-#if [[ -s /home/badboy/.rvm/scripts/rvm ]] ; then source /home/badboy/.rvm/scripts/rvm ; fi
+[[ -s "/home/badboy/.rvm/scripts/rvm" ]] && source "/home/badboy/.rvm/scripts/rvm"
 
 # to access github's code directly
 cg() {
@@ -117,5 +116,7 @@ mkpasswd() {
 #export RUBYLIB="$RUBYLIB:$HOME/code/github/defunkt/rip/lib"
 #export PATH="$PATH:$HOME/code/github/defunkt/rip/bin"
 #eval `rip-config`
+
+export GEM_PATH=~/.gem/ruby/1.9
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
