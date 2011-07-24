@@ -86,7 +86,7 @@ alias gem18='/usr/bin/gem18 --config-file ~/.gemrc18'
 
 # using gatling it's easy to transfer some files
 # to windows (using smb) and from windows (using ftp)
-alias gatling='sudo /home/badboy/code/gatling/gatling -p 81 -u 1000 -w harmless'
+alias gatling='sudo /home/badboy/code/gatling/gatling -p 81 -u 1000 -w brain'
 
 alias raumstatus='curl http://ctdo.de/raumstatus.cgi'
 
