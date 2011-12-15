@@ -77,4 +77,6 @@ alias proxy-us='echo "socks proxy on localhost:9090"; ssh -ND9090 kiwi'
 
 alias tether='sudo ifconfig usb0 up; sudo dhcpcd usb0'
 
+# Saras Adventskalender :)
+alias xmas='egrep "^$(date +%e)\." ~/dropbox/notes/Adventskalender.txt'
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
