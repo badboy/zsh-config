@@ -40,6 +40,7 @@ alias ftp='ncftp'
 alias cups='sudo /etc/rc.d/cupsd start'
 alias cupss='sudo /etc/rc.d/cupsd stop'
 
+alias ncmpc='mpd_wrap ncmpcpp'
 
 alias diff='colordiff'
 
