@@ -37,21 +37,9 @@ alias pdf2='evince'
 alias fz='filezilla'
 alias ftp='ncftp'
 
-alias pcmanfm-here='pcmanfm --no-desktop "$(pwd)"'
-alias pc.='pcmanfm --no-desktop .'
-
 alias cups='sudo /etc/rc.d/cupsd start'
 alias cupss='sudo /etc/rc.d/cupsd stop'
 
-alias ncmpc='ncmpcpp'
-alias inkscap='LC_ALL=C inkscape'
-#alias vid='export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so'
-#alias newsake='rm /home/badboy/.sake_tasks~'
-
-#alias quickcam='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot'
-#alias avidemux='avidemux2_qt4'
-
-alias startxi3='startx /usr/bin/i3 -- :1 vt8 -nolisten tcp'
 
 alias diff='colordiff'
 
@@ -66,14 +54,6 @@ alias curcpu='LC_ALL=C cpufreq-info | grep -o "governor \".\+\"" | sed "s/.\+\"\
 alias perm='/usr/bin/stat --printf "%a %n \n"' # requires a file name e.g. perm file
 alias abs='sudo abs'
 alias ipx='(echo -n "intern: ";ifdata -pa eth0;echo -n "wlan: ";ifdata -pa wlan0;echo -n "extern: ";getip)'
-
-# not needed for now, using rvm instead.
-#alias rake='rake18'
-alias sv='script/server'
-alias sg='script/generate'
-alias sc='script/console'
-
-alias i3-check="(chpwd(){};cd ~/code/i3/ && echo -n 'i3 git repo: ' && git pull && [ \$(vercmp \$(i3 -v | awk '{print \$3}') \$(git describe --tags --always)) -eq 0 ] && echo 'version up to date' || echo 'version differs')"
 
 alias d='cd'
 
