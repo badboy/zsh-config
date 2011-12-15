@@ -115,8 +115,5 @@ mkpasswd() {
 
 #export RUBYLIB="$RUBYLIB:$HOME/code/github/defunkt/rip/lib"
 #export PATH="$PATH:$HOME/code/github/defunkt/rip/bin"
-#eval `rip-config`
-
-export GEM_PATH=~/.gem/ruby/1.9
 
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
