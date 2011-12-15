@@ -71,4 +71,10 @@ alias gatling='sudo /home/badboy/code/gatling/gatling -p 81 -u 1000 -w brain'
 
 alias raumstatus='curl http://ctdo.de/raumstatus.cgi'
 
+alias proxy-resque='echo "Proxy to http://localhost:2000/"; ssh netcup -NL 2000:localhost:5678'
+alias proxy-filebase='echo "Proxy to http://localhost:2000/"; ssh shell -NL 2000:filebase.raum.ctdo.de:80'
+alias proxy-us='echo "socks proxy on localhost:9090"; ssh -ND9090 kiwi'
+
+alias tether='sudo ifconfig usb0 up; sudo dhcpcd usb0'
+
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
