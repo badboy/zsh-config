@@ -69,7 +69,7 @@ alias gem18='/usr/bin/gem18 --config-file ~/.gemrc18'
 # to windows (using smb) and from windows (using ftp)
 alias gatling='sudo /home/badboy/code/gatling/gatling -p 81 -u 1000 -w brain'
 
-alias raumstatus='curl http://ctdo.de/raumstatus.cgi'
+alias raumstatus='curl http://www.chaostreff-dortmund.de/raumstatus.php?txt'
 
 alias proxy-resque='echo "Proxy to http://localhost:2000/"; ssh netcup -NL 2000:localhost:5678'
 alias proxy-filebase='echo "Proxy to http://localhost:2000/"; ssh shell -NL 2000:filebase.raum.ctdo.de:80'
